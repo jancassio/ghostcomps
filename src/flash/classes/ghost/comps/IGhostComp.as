@@ -5,7 +5,7 @@ package ghost.comps
 	 *  All ghost comps have an interface called IGhostComp.
 	 *  In this face, you only see the controled body part.
 	 *  
-	 *  @author Jan Cássio | janio@ghost.as
+	* @author jancassio | jancassio@ghost.com
 	 */
 	public interface IGhostComp
 	{
