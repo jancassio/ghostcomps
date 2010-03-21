@@ -8,6 +8,22 @@ package ghost.comps.text
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 
+	/**
+	 * This ghost just manipulate a text field to works like a input field.
+	 * @example
+	 * 
+	 * var myInput : TextInputGhostComp
+	 * 
+	 * myInput = new TextInputGhostComp( myInputClip );
+	 * myInput.onChange = onChangeInput;
+	 * 
+	 * function onChangeInput( event : TextEvent, ghost : TextInputGhostComp ) : void
+	 * {
+	 * 		// your handle block here.
+	 * }
+	 * 
+	 * @author jancassio | janio@jancassio.com
+	 */
 	public class TextInputGhostComp extends GhostComp
 	{
 		// [ Event stubs ] ----------------------------------------------------
@@ -120,7 +136,12 @@ package ghost.comps.text
 		
 		private function onTextChange (e:Event) : void
 		{
-			onChanged( e.clone(), this );
+			var event : TextEvent;
+			
+			event = new TextEvent(e.type);
+			event.text = _input.text;
+			
+			onChanged( event );
 		}
 	}
 }
