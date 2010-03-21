@@ -28,30 +28,37 @@ package ghost.comps.text
 	 */
 	public class LabelGhostComp extends GhostComp
 	{
+		// [ Body's manipulated parts ] ---------------------------------------
 		private var _txtfield : TextField;
 		
-		// [ Error messages ] -------------------------------------------------
 		
+		
+		
+		
+		// [ Default body's manipulated parts names ] -------------------------
+		protected var labelName : String;
+
+
+
+
+
+		// [ Error messages ] -------------------------------------------------
 		private const LABEL_ERROR : String = "LabelGUI object requires an instance of TextField to define label box.";
 		
 		
 		
-		// [ Default body parts name ] ----------------------------------------
 		
-		protected var labelName : String;
-
 		
 		// [ Setup ] ----------------------------------------------------------
-		
-		
 		
 		/**
 		 *	Creates a new LabelGhostComp instance.
 		 *	@constructor
 		 */
-		public function LabelGhostComp (skin : * = null)
+		public function LabelGhostComp (body : * = null)
 		{
-			this.body = skin;
+			this.body = body;
+			super();
 		}
 		
 		override protected function anatomy () : void
