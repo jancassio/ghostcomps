@@ -12,6 +12,7 @@ package ghost.comps
 	 */
 	public class GhostComp implements IGhostComp, IEventDispatcher
 	{
+
 		protected var _body : *;
 		
 		private var disp : EventDispatcher;
@@ -29,6 +30,7 @@ package ghost.comps
 		public function GhostComp()
 		{
 			conf();
+			anatomy();
 		}
 		
 		private function conf () : void
@@ -36,6 +38,16 @@ package ghost.comps
 			disp = new EventDispatcher(this);
 		}
 		
+		/**
+		 * Useful method to edit default anatomy of a body. By default, all comps implements
+		 * this methods with default body instance names values. The default names is changed in
+		 * two situations. When anatomy method is override by another inheritance or a body part is
+		 * passed to comp with a diferent name.
+		 */
+		protected function anatomy () : void
+		{
+			// override in inheritance.
+		}
 		
 		
 		
