@@ -73,7 +73,7 @@ package ghost.comps.text
 	
 	
 		// [ Error messages ] -------------------------------------------------
-		private const INPUT_ERROR : String = "TextInputGUI object requires an instance of TextField to define input box.";
+		private const INPUT_ERROR : String = "TextInputGhostComp object requires an instance of TextField to define input box.";
 	
 	
 	

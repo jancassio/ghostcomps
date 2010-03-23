@@ -68,7 +68,7 @@ package ghost.comps.text
 
 
 		// [ Error messages ] -------------------------------------------------
-		private const LABEL_ERROR : String = "LabelGUI object requires an instance of TextField to define label box.";
+		private const LABEL_ERROR : String = "LabelGhost object requires an instance of TextField to define label box.";
 		
 		
 		
