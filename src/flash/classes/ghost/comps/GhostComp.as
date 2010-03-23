@@ -19,7 +19,7 @@
  
 
 	Ghost Comps Project
-	http://ghost.as
+	http://github.com/jancassio/ghostcomps/
 	
 	------------------------------------------------------------------------ */
 
@@ -33,7 +33,7 @@ package ghost.comps
 	 *  GhostComp is the core of all ghosts comps api classes.
 	 *	The basic way to use is simple, just override the <code>body</code> in your ghost.
 	 *
-	 * @author jancassio | jancassio@ghost.com
+	 * @author jancassio | janio@jancassio.com
 	 */
 	public class GhostComp implements IGhostComp, IEventDispatcher
 	{

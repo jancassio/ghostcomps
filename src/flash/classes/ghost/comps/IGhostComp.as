@@ -19,7 +19,7 @@
  
 
 	Ghost Comps Project
-	http://ghost.as
+	http://github.com/jancassio/ghostcomps/
 	
 	------------------------------------------------------------------------ */
 
@@ -30,7 +30,7 @@ package ghost.comps
 	 *  All ghost comps have an interface called IGhostComp.
 	 *  In this face, you only see the controled body part.
 	 *  
-	* @author jancassio | jancassio@ghost.com
+	* @author jancassio | janio@jancassio.com
 	 */
 	public interface IGhostComp
 	{

@@ -19,7 +19,7 @@
  
 
 	Ghost Comps Project
-	http://ghost.as
+	http://github.com/jancassio/ghostcomps/
 	
 	------------------------------------------------------------------------ */
 
@@ -45,7 +45,7 @@ package ghost.comps.controls
 	 * 
 	 * function onBtnClick (e : MouseEvent, ghost : BtnGhostComp) : void {};
 	 * </code>
-	 * @author jancassio | jancassio@ghost.as  
+	 * @author jancassio | janio@jancassio.com
 	 */
 	public class BtnGhostComp extends GhostComp
 	{
