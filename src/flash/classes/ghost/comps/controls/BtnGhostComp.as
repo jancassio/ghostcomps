@@ -49,6 +49,8 @@ package ghost.comps.controls
 	 */
 	public class BtnGhostComp extends GhostComp
 	{
+		
+		// [ Event stubs ] ----------------------------------------------------
 		/**
 		 *	Shots on mouse over hit instance.
 		 */
