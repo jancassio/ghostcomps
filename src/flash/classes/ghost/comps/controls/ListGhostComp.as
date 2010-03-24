@@ -134,7 +134,6 @@ package ghost.comps.controls
 		/**
 		 *	Push a instance into list.
 		 *	@return The ToggleBtnGhostComp to handles option activities.
-		 *	@see patota.gui.controls.ToggleBtnGhostComp
 		 */
 		public function add ( instance : DisplayObject, at : Number = 0) : *
 		{
