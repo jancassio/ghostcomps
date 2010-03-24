@@ -253,7 +253,7 @@ package ghost.helpers
 		}
 		
 		
-		internal function dispatch(type : String):Boolean
+		public function dispatch(type : String):Boolean
 		{
 			var event : SliderEvent;
 			
