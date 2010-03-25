@@ -55,9 +55,9 @@ package ghost.comps.controls
 
 		// [ Default body's manipulated parts names ] -------------------------
 		
-		private var listName : String;
-		private var scrollName : String;
-		private var buttonName : String;
+		private var listName	: String;
+		private var scrollName	: String;
+		private var buttonName	: String;
 
 		
 		public function ComboGhostComp (skin : * = null)

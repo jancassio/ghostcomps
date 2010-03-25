@@ -117,6 +117,7 @@ package ghost.comps.controls
 			this.body = body;
 		}
 		
+		// TODO: refatorar aqui!
 		override protected function anatomy () : void
 		{
 			hitName = "hit";
