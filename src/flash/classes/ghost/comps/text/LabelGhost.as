@@ -51,7 +51,7 @@ package ghost.comps.text
 	 * </code>
 	 * @author jancassio | jancassio@ghost.com
 	 */
-	public class LabelGhostComp extends GhostComp
+	public class LabelGhost extends GhostComp
 	{
 		// [ Body's manipulated parts ] ---------------------------------------
 		private var _txtfield : TextField;
@@ -80,7 +80,7 @@ package ghost.comps.text
 		 *	Creates a new LabelGhostComp instance.
 		 *	@constructor
 		 */
-		public function LabelGhostComp (body : * = null)
+		public function LabelGhost (body : * = null)
 		{
 			this.body = body;
 			super();

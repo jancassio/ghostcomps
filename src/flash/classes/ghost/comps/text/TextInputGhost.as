@@ -49,7 +49,7 @@ package ghost.comps.text
 	 * 
 	 * @author jancassio | janio@jancassio.com
 	 */
-	public class TextInputGhostComp extends GhostComp
+	public class TextInputGhost extends GhostComp
 	{
 		// [ Event stubs ] ----------------------------------------------------
 		public var onChange		: Function;
@@ -85,7 +85,7 @@ package ghost.comps.text
 		 *	Creates a new TextInputGhostComp instance.
 		 *	@constructor
 		 */
-		public function TextInputGhostComp (body : *)
+		public function TextInputGhost (body : *)
 		{
 			this.body = body;
 		}

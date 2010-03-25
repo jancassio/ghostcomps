@@ -36,7 +36,7 @@ package ghost.comps.controls
 	 *  @author jancassio | janio@jancassio.com
 	 *  
 	 */
-	public class ComboGhostComp extends GhostComp
+	public class ComboGhost extends GhostComp
 	{
 		
 		// [ Event stubs ] ----------------------------------------------------
@@ -48,9 +48,9 @@ package ghost.comps.controls
 		
 		// [ composition fields ] ---------------------------------------------
 		
-		private var _list	: ListGhostComp;
-		private var _scroll	: Slider2DGhostComp;
-		private var _button	: BtnGhostComp;
+		private var _list	: ListGhost;
+		private var _scroll	: SliderGhost;
+		private var _button	: BtnGhost;
 		
 
 		// [ Default body's manipulated parts names ] -------------------------
@@ -60,16 +60,16 @@ package ghost.comps.controls
 		private var buttonName	: String;
 
 		
-		public function ComboGhostComp (skin : * = null)
+		public function ComboGhost (skin : * = null)
 		{
 			conf(skin);
 		}
 		
 		private function conf (skin : * = null) : void
 		{
-			_list	= new ListGhostComp;
-			_scroll = new Slider2DGhostComp;
-			_button = new BtnGhostComp;
+			_list	= new ListGhost;
+			_scroll = new SliderGhost;
+			_button = new BtnGhost;
 			
 			this.body = skin;
 		}
@@ -103,7 +103,7 @@ package ghost.comps.controls
 		/**
 		 *	A ListGUI instance.
 		 */
-		public function get list () : ListGhostComp
+		public function get list () : ListGhost
 		{
 			return _list;
 		}
@@ -111,7 +111,7 @@ package ghost.comps.controls
 		/**
 		 *	A Slider2DGhostComp instance.
 		 */
-		public function get scroll () : Slider2DGhostComp
+		public function get scroll () : SliderGhost
 		{
 			return _scroll;
 		}
@@ -119,7 +119,7 @@ package ghost.comps.controls
 		/**
 		 *	A BtnGhostComp instance.
 		 */
-		public function get button () : BtnGhostComp
+		public function get button () : BtnGhost
 		{
 			return _button;
 		}
@@ -171,7 +171,7 @@ package ghost.comps.controls
 		
 		// [ Handlers ] -------------------------------------------------------
 		
-		private function onListSelect (option : ToggleBtnGhostComp) : void
+		private function onListSelect (option : ToggleBtnGhost) : void
 		{
 			collapse();
 			onSelect(list.selected);

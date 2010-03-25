@@ -47,7 +47,7 @@ package ghost.comps.controls
 	 * </code>
 	 * @author jancassio | janio@jancassio.com
 	 */
-	public class BtnGhostComp extends GhostComp
+	public class BtnGhost extends GhostComp
 	{
 		
 		// [ Event stubs ] ----------------------------------------------------
@@ -111,7 +111,7 @@ package ghost.comps.controls
 		/**
 		 *	Creates a new BtnGhostComp instance.
 		 */
-		public function BtnGhostComp (body : * = null)
+		public function BtnGhost (body : * = null)
 		{
 			super();
 			this.body = body;
