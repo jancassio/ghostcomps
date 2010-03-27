@@ -28,7 +28,7 @@ package ghost.comps
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
-	
+
 	/**
 	 *  GhostComp is the core of all ghosts comps api classes.
 	 *	The basic way to use is simple, just override the <code>body</code> in your ghost.

@@ -45,7 +45,7 @@ package ghost.comps.text
 	 * @see ghost.comps.text.TextInputGhostComp
 	 *	
 	 */
-	public class TextAreaGhost extends TextInputGhost
+	public class GhostTextArea extends GhostTextInput
 	{
 
 		/**

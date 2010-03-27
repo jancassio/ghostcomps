@@ -36,7 +36,7 @@ package ghost.comps.controls
 	 *
 	 *	@author jancassio | janio@jancassio.com  
 	 */
-	public class ListGhost extends GhostComp
+	public class GhostList extends GhostComp
 	{	
 		
 		// [ Event stubs ] ----------------------------------------------------
@@ -48,7 +48,7 @@ package ghost.comps.controls
 		
 		private var precedent	: DisplayObject;
 		private var itemsBox	: Sprite;
-		private var _selected	: ToggleBtnGhost;
+		private var _selected	: GhostToggleBtn;
 		private var _container	: DisplayObjectContainer;
 		private var _mask		: DisplayObject;
 		
@@ -67,7 +67,7 @@ package ghost.comps.controls
 		/**
 		 *	Initialize a new ListGhostComp instance.
 		 */
-		public function ListGhost (body : * = null)
+		public function GhostList (body : * = null)
 		{
 			if(body) this.body = body;
 			super();
@@ -137,9 +137,9 @@ package ghost.comps.controls
 		 */
 		public function add ( instance : DisplayObject, at : Number = 0) : *
 		{
-			var option : ToggleBtnGhost;
+			var option : GhostToggleBtn;
 			
-			option = new ToggleBtnGhost( itemsBox.addChildAt( instance, at ) );
+			option = new GhostToggleBtn( itemsBox.addChildAt( instance, at ) );
 			option.body.y = ( precedent ) ? precedent.y + precedent.height + 5: 0;
 			
 			precedent = option.body;
@@ -157,14 +157,14 @@ package ghost.comps.controls
 		/**
 		 *	Makes/Retrives an option.
 		 */
-		public function set selected(value:ToggleBtnGhost) : void
+		public function set selected(value:GhostToggleBtn) : void
 		{
 			_selected = value;
 			
 			if( onSelect != null) onSelect( value );
 		}
 		
-		public function get selected():ToggleBtnGhost
+		public function get selected():GhostToggleBtn
 		{
 			return _selected;
 		}
@@ -175,7 +175,7 @@ package ghost.comps.controls
 		
 		// [ Handlers ] -------------------------------------------------------
 		
-		private function onSelection(option : ToggleBtnGhost):void
+		private function onSelection(option : GhostToggleBtn):void
 		{
 			selected = option;
 		}

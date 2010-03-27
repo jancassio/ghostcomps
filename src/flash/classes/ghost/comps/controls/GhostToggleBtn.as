@@ -42,7 +42,7 @@ package ghost.comps.controls
 	 * </code>
 	 * @author jancassio | janio@jancassio.com
 	 */
-	public class ToggleBtnGhost extends BtnGhost
+	public class GhostToggleBtn extends GhostBtn
 	{	
 		
 		// [ Event stubs ] ----------------------------------------------------
@@ -67,7 +67,7 @@ package ghost.comps.controls
 		/**
 		 * Creates a new ToggleBtnGhostComp instance
 		 */
-		public function ToggleBtnGhost (body : * = null)
+		public function GhostToggleBtn (body : * = null)
 		{
 			_chosen = false;
 			super(body);

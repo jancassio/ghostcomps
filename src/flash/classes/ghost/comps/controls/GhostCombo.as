@@ -36,7 +36,7 @@ package ghost.comps.controls
 	 *  @author jancassio | janio@jancassio.com
 	 *  
 	 */
-	public class ComboGhost extends GhostComp
+	public class GhostCombo extends GhostComp
 	{
 		
 		// [ Event stubs ] ----------------------------------------------------
@@ -48,9 +48,9 @@ package ghost.comps.controls
 		
 		// [ composition fields ] ---------------------------------------------
 		
-		private var _list	: ListGhost;
-		private var _scroll	: SliderGhost;
-		private var _button	: BtnGhost;
+		private var _list	: GhostList;
+		private var _scroll	: GhostSlider;
+		private var _button	: GhostBtn;
 		
 
 		// [ Default body's manipulated parts names ] -------------------------
@@ -60,16 +60,16 @@ package ghost.comps.controls
 		private var buttonName	: String;
 
 		
-		public function ComboGhost (skin : * = null)
+		public function GhostCombo (skin : * = null)
 		{
 			conf(skin);
 		}
 		
 		private function conf (skin : * = null) : void
 		{
-			_list	= new ListGhost;
-			_scroll = new SliderGhost;
-			_button = new BtnGhost;
+			_list	= new GhostList;
+			_scroll = new GhostSlider;
+			_button = new GhostBtn;
 			
 			this.body = skin;
 		}
@@ -103,7 +103,7 @@ package ghost.comps.controls
 		/**
 		 *	A ListGUI instance.
 		 */
-		public function get list () : ListGhost
+		public function get list () : GhostList
 		{
 			return _list;
 		}
@@ -111,7 +111,7 @@ package ghost.comps.controls
 		/**
 		 *	A Slider2DGhostComp instance.
 		 */
-		public function get scroll () : SliderGhost
+		public function get scroll () : GhostSlider
 		{
 			return _scroll;
 		}
@@ -119,7 +119,7 @@ package ghost.comps.controls
 		/**
 		 *	A BtnGhostComp instance.
 		 */
-		public function get button () : BtnGhost
+		public function get button () : GhostBtn
 		{
 			return _button;
 		}
@@ -171,7 +171,7 @@ package ghost.comps.controls
 		
 		// [ Handlers ] -------------------------------------------------------
 		
-		private function onListSelect (option : ToggleBtnGhost) : void
+		private function onListSelect (option : GhostToggleBtn) : void
 		{
 			collapse();
 			onSelect(list.selected);
