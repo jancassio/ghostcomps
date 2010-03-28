@@ -47,10 +47,10 @@ package demos
 			stage.align						= StageAlign.TOP_LEFT;
 			stage.scaleMode					= StageScaleMode.NO_SCALE;
 			stage.showDefaultContextMenu	= false;
-			stage.stageFocusRect			= false;
+//			stage.stageFocusRect			= false;
 			
 			render();
-			
+			createGhosts();
 			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 		
@@ -64,6 +64,22 @@ package demos
 		
 		
 		
+		
+		private function createGhosts () : void
+		{
+			nameGhost	= new GhostTextInput;
+			emailGhost	= new GhostTextInput;
+			msgGhost	= new GhostTextArea;
+			
+			nameGhost.input		= nameField.input;
+			emailGhost.input	= emailField.input;
+			msgGhost.input		= msgField.input_txt;
+			
+			nameGhost.input.text = "";
+			emailGhost.input.text = "";
+			msgGhost.input.text = "";
+		}
+
 		
 		private function update () : void
 		{

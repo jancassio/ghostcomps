@@ -47,6 +47,10 @@ package ghost.comps.text
 	 */
 	public class GhostTextArea extends GhostTextInput
 	{
+		public function GhostTextArea (body : * = null)
+		{
+			super( body );
+		}
 
 		/**
 		 * The textfield to be manipuled by ghost.

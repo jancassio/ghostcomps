@@ -85,9 +85,9 @@ package ghost.comps.text
 		 *	Creates a new TextInputGhostComp instance.
 		 *	@constructor
 		 */
-		public function GhostTextInput (body : *)
+		public function GhostTextInput (body : * = null)
 		{
-			this.body = body;
+			if(body) this.body = body;
 		}
 		
 		override protected function anatomy () : void
@@ -156,7 +156,7 @@ package ghost.comps.text
 		
 		private function onTextInput (e:TextEvent) : void
 		{
-			onChange( e.clone(), this );
+			if(onChange != null) onChange( e.clone(), this );
 		}
 		
 		private function onTextChange (e:Event) : void
