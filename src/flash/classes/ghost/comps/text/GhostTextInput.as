@@ -25,6 +25,8 @@
 
 package ghost.comps.text
 {
+	import flash.events.FocusEvent;
+	import flash.events.KeyboardEvent;
 	import ghost.comps.GhostComp;
 
 	import flash.errors.IllegalOperationError;
@@ -54,6 +56,9 @@ package ghost.comps.text
 		// [ Event stubs ] ----------------------------------------------------
 		public var onChange		: Function;
 		public var onChanged	: Function;
+		public var onFocusIn	: Function;
+		public var onFocusOut	: Function;
+		public var onEnter		: Function;
 		
 		
 		
@@ -121,6 +126,8 @@ package ghost.comps.text
 			_input = value;
 			_input.type = TextFieldType.INPUT;
 			_input.multiline = false;
+			_input.wordWrap = false;
+			_input.selectable = true;
 			
 			listen();
 		}
@@ -139,14 +146,48 @@ package ghost.comps.text
 		private function listen () : void
 		{
 			_input.addEventListener(TextEvent.TEXT_INPUT, onTextInput);
-			_input.addEventListener(Event.CHANGE, onTextChange);
+			_input.addEventListener(Event.CHANGE, onTextChange );
+			_input.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown );
+			_input.addEventListener(FocusEvent.FOCUS_IN, onFocus );
+			_input.addEventListener(FocusEvent.FOCUS_OUT, onFocus);
 		}
-		
+
 		private function unlisten () : void
 		{
 			_input.removeEventListener(TextEvent.TEXT_INPUT, onTextInput);
 			_input.removeEventListener(Event.CHANGE, onTextChange);
+			_input.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			_input.addEventListener(FocusEvent.FOCUS_IN, onFocus );
+			_input.addEventListener(FocusEvent.FOCUS_OUT, onFocus);
 		}
+		
+		
+		private function onFocus (event : FocusEvent) : void 
+		{
+			switch( event.type )
+			{
+				case FocusEvent.FOCUS_IN:
+					if( onFocusIn != null ) onFocusIn( event.clone(), this );	
+				break;
+				
+				case FocusEvent.FOCUS_OUT:
+					if( onFocusOut != null ) onFocusOut( event.clone(), this );	
+				break;
+			}
+		}
+
+		
+		private function onKeyDown (event : KeyboardEvent) : void 
+		{
+			switch( event.keyCode )
+			{
+				case 13:	// enter key
+					if( onEnter != null ) onEnter( event.clone(), this );
+				break;
+			}
+		}
+
+		
 		
 		
 		
@@ -154,19 +195,19 @@ package ghost.comps.text
 		
 		// [ Handlers ] -------------------------------------------------------
 		
-		private function onTextInput (e:TextEvent) : void
+		private function onTextInput (event:TextEvent) : void
 		{
-			if(onChange != null) onChange( e.clone(), this );
+			if(onChange != null) onChange( event.clone(), this );
 		}
 		
-		private function onTextChange (e:Event) : void
+		private function onTextChange (event:Event) : void
 		{
-			var event : TextEvent;
+			var txtEvt : TextEvent;
 			
-			event = new TextEvent(e.type);
-			event.text = _input.text;
+			txtEvt = new TextEvent(txtEvt.type);
+			txtEvt.text = _input.text;
 			
-			onChanged( event );
+			if(onChanged != null) onChanged( txtEvt );
 		}
 	}
 }

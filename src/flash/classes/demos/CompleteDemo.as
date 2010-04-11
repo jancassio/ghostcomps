@@ -1,13 +1,11 @@
 package demos 
 {
-	import ghost.comps.text.GhostTextArea;
-	import ghost.comps.text.GhostTextInput;
-	import flash.display.StageScaleMode;
-	import flash.display.StageAlign;
-	import flash.events.Event;
-	import demos.text.TextInput;
-	import demos.text.TextArea;
+	
+
 	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.Event;
 
 	/**
 	 * Example of ghosts comps usage.
@@ -18,96 +16,44 @@ package demos
 	[SWF(frameRate="31", backgroundColor="0x000000")]
 	public class CompleteDemo extends Sprite 
 	{
-		private var nameField	: TextInput;
-		private var emailField	: TextInput;
-		private var msgField	: TextArea;
+		private var textDemo : TextDemo;
 		
-		private var nameGhost	: GhostTextInput;
-		private var emailGhost	: GhostTextInput;
-		private var msgGhost	: GhostTextArea;
-		
-		// [ Setup ] ----------------------------------------------------------
-		
-		public function CompleteDemo ()
+		public function CompleteDemo()
 		{
-			conf();
-		}
-		
-		private function conf () : void
-		{
-			nameField	= new TextInput;
-			emailField	= new TextInput;
-			msgField	= new TextArea;
 			
 			( stage ) ? init() : addEventListener(Event.ADDED_TO_STAGE, onAddedToStage );
 		}
 
-		private function init() : void
-		{
-			stage.align						= StageAlign.TOP_LEFT;
-			stage.scaleMode					= StageScaleMode.NO_SCALE;
-			stage.showDefaultContextMenu	= false;
-//			stage.stageFocusRect			= false;
-			
-			render();
-			createGhosts();
-			addEventListener(Event.ENTER_FRAME, onEnterFrame);
-		}
-		
-		private function render () : void
-		{
-			addChild( nameField );
-			addChild( emailField );
-			addChild( msgField );
-		}
-		
-		
-		
-		
-		
-		private function createGhosts () : void
-		{
-			nameGhost	= new GhostTextInput;
-			emailGhost	= new GhostTextInput;
-			msgGhost	= new GhostTextArea;
-			
-			nameGhost.input		= nameField.input;
-			emailGhost.input	= emailField.input;
-			msgGhost.input		= msgField.input_txt;
-			
-			nameGhost.input.text = "";
-			emailGhost.input.text = "";
-			msgGhost.input.text = "";
-		}
-
-		
-		private function update () : void
-		{
-			nameField.x = 10;
-			nameField.y = 10;
-			
-			emailField.x = 10;
-			emailField.y = nameField.y + nameField.height + 10;
-			
-			msgField.x = 10;
-			msgField.y = emailField.y + emailField.height + 10;
-		}
-
-
-
-
-		
-		// [ Handlers ] -------------------------------------------------------
 		
 		private function onAddedToStage (event : Event) : void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			init();
+			init( );
 		}
+
+		
+		private function init () : void 
+		{
+			setupStage();
+			
+			textDemo = addChild( new TextDemo ) as TextDemo;
+			
+			addEventListener(Event.ENTER_FRAME, onEnterFrame );
+		}
+
 		
 		private function onEnterFrame (event : Event) : void 
 		{
-			update();
+			textDemo.render();
+		}
+
+		
+		private function setupStage () : void
+		{
+			stage.align						= StageAlign.TOP_LEFT;
+			stage.scaleMode					= StageScaleMode.NO_SCALE;
+			stage.showDefaultContextMenu	= false;
+			stage.stageFocusRect			= false;
 		}
 	}
 }
