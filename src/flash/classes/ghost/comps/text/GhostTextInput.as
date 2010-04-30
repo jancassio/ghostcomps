@@ -144,9 +144,6 @@ package ghost.comps.text
 				input = body[ inputName ];
 		}
 
-		/**
-		 * The textfield to be manipuled by ghost.
-		 */
 		public function set input (value : TextField) : void
 		{
 			if(!value)
@@ -164,6 +161,9 @@ package ghost.comps.text
 			listen();
 		}
 		
+		/**
+		 * The textfield to be manipuled by ghost.
+		 */
 		public function get input () : TextField
 		{
 			return _input;

@@ -1,14 +1,15 @@
 package demos 
 {
-	import ghost.comps.IGhostComp;
-	import flash.events.KeyboardEvent;
 	import demos.text.TextArea;
 	import demos.text.TextInput;
 
+	import ghost.comps.IGhostComp;
 	import ghost.comps.text.GhostTextArea;
 	import ghost.comps.text.GhostTextInput;
 
 	import flash.display.Sprite;
+	import flash.events.FocusEvent;
+	import flash.events.KeyboardEvent;
 	import flash.events.TextEvent;
 
 	/**
@@ -20,7 +21,6 @@ package demos
 		private var nameField   : TextInput;
 		private var emailField	: TextInput;
 		private var msgField    : TextArea;
-		private var output      : TextInput;
 		
 		private var nameGhost   : GhostTextInput;
 		private var emailGhost	: GhostTextInput;
@@ -40,7 +40,6 @@ package demos
 			nameField    = new TextInput;
 			emailField   = new TextInput;
 			msgField     = new TextArea;
-			output       = new TextInput;
 			
 			nameField.label.text	= "NAME:";
 			emailField.label.text	= "EMAIL:";
@@ -59,7 +58,6 @@ package demos
 			addChild( nameField );
 			addChild( emailField );
 			addChild( msgField );
-			addChild( output );
 		}
 
 		
@@ -77,10 +75,11 @@ package demos
 			emailGhost.input.text	= "";
 			msgGhost.input.text		= "";
 			
-			nameGhost.onEnter    = onKeyEvent;
-			emailGhost.onEnter   = onKeyEvent;
-			msgGhost.onEnter     = onKeyEvent;
+			listen();
 		}
+		
+		
+
 
 		
 		public function render () : void 
@@ -93,15 +92,38 @@ package demos
 			
 			msgField.x = 10;
 			msgField.y = emailField.y + emailField.height + 10;
-			
-			output.x = 10;
-			output.y = msgField.y + msgField.height + 10;
 		}
-
+		
+		
+		
+		
+		
+		private function listen () : void
+        {
+            nameGhost.onChange       = onChange;
+            nameGhost.onChanged      = onChanged;
+            nameGhost.onEnter        = onKeyEvent;
+            nameGhost.onFocusIn      = onFocusIn;
+            nameGhost.onFocusOut     = onFocusOut;
+            
+            emailGhost.onChange       = onChange;
+            emailGhost.onChanged      = onChanged;
+            emailGhost.onEnter        = onKeyEvent;
+            emailGhost.onFocusIn      = onFocusIn;
+            emailGhost.onFocusOut     = onFocusOut;
+            
+            msgGhost.onChange       = onChange;
+            msgGhost.onChanged      = onChanged;
+            msgGhost.onEnter        = onKeyEvent;
+            msgGhost.onFocusIn      = onFocusIn;
+            msgGhost.onFocusOut     = onFocusOut;
+        }
+        
+        
+        
+        
 		
 		// [ Handlers ] -------------------------------------------------------
-		
-		
 		
 		private function onKeyEvent (event : KeyboardEvent, owner : IGhostComp) : void
 		{
@@ -109,5 +131,36 @@ package demos
             trace("\tevent = ", event);
             trace("\towner = ", owner);
 		}
+		
+		private function onFocusOut (event : FocusEvent, owner : IGhostComp) : void 
+        {
+            trace("[ TextDemo ]: onFocusOut ");
+            trace("\tevent = ", event);
+            trace("\towner = ", owner);
+        }
+
+        
+        private function onFocusIn (event : FocusEvent, owner : IGhostComp) : void 
+        {
+            trace("[ TextDemo ]: onFocusIn ");
+            trace("\tevent = ", event);
+            trace("\towner = ", owner);
+        }
+
+        
+        private function onChanged (event : TextEvent, owner : IGhostComp) : void 
+        {
+            trace("[ TextDemo ]: onChanged ");
+            trace("\tevent = ", event);
+            trace("\towner = ", owner);
+        }
+
+        
+        private function onChange (event : TextEvent, owner : IGhostComp) : void 
+        {
+            trace("[ TextDemo ]: onChange ");
+            trace("\tevent = ", event);
+            trace("\towner = ", owner);
+        }
 	}
 }
