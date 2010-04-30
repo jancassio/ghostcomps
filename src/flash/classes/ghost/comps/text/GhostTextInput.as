@@ -54,10 +54,40 @@ package ghost.comps.text
 	public class GhostTextInput extends GhostComp
 	{
 		// [ Event stubs ] ----------------------------------------------------
+		
+				/**
+		 * Shot on input is change.
+		 * @param event The TextEvent info.
+		 * @param owner The ghost instance.
+		 */
 		public var onChange		: Function;
+		
+		/**
+         * Shot on input is changed.
+         * @param event The TextEvent info.
+         * @param owner The ghost instance.
+         */
 		public var onChanged	: Function;
+		
+		/**
+         * Shot after a display object gains focus.
+         * @param event The FocusEvent info.
+         * @param owner The ghost instance.
+         */
 		public var onFocusIn	: Function;
+		
+		/**
+         * Shot after a display object loses focus.
+         * @param event The FocusEvent info.
+         * @param owner The ghost instance.
+         */
 		public var onFocusOut	: Function;
+		
+		/**
+         * Shot after a display object loses focus.
+         * @param event The FocusEvent info.
+         * @param owner The ghost instance.
+         */
 		public var onEnter		: Function;
 		
 		
@@ -103,7 +133,9 @@ package ghost.comps.text
 
 
 
-		
+		/**
+		 * @inheritDoc
+		 */
 		override public function set body (value : *) : void
 		{
 			super.body = value;
@@ -160,22 +192,26 @@ package ghost.comps.text
 			_input.addEventListener(FocusEvent.FOCUS_IN, onFocus );
 			_input.addEventListener(FocusEvent.FOCUS_OUT, onFocus);
 		}
+
 		
+		
+		
+
+		// [ Handlers ] -------------------------------------------------------
 		
 		private function onFocus (event : FocusEvent) : void 
-		{
-			switch( event.type )
-			{
-				case FocusEvent.FOCUS_IN:
-					if( onFocusIn != null ) onFocusIn( event.clone(), this );	
-				break;
-				
-				case FocusEvent.FOCUS_OUT:
-					if( onFocusOut != null ) onFocusOut( event.clone(), this );	
-				break;
-			}
-		}
-
+        {
+            switch( event.type )
+            {
+                case FocusEvent.FOCUS_IN:
+                    if( onFocusIn != null ) onFocusIn( event.clone(), this );   
+                break;
+                
+                case FocusEvent.FOCUS_OUT:
+                    if( onFocusOut != null ) onFocusOut( event.clone(), this ); 
+                break;
+            }
+        }
 		
 		private function onKeyDown (event : KeyboardEvent) : void 
 		{
@@ -186,14 +222,6 @@ package ghost.comps.text
 				break;
 			}
 		}
-
-		
-		
-		
-		
-		
-		
-		// [ Handlers ] -------------------------------------------------------
 		
 		private function onTextInput (event:TextEvent) : void
 		{
@@ -204,10 +232,10 @@ package ghost.comps.text
 		{
 			var txtEvt : TextEvent;
 			
-			txtEvt = new TextEvent(txtEvt.type);
+			txtEvt = new TextEvent(event.type);
 			txtEvt.text = _input.text;
 			
-			if(onChanged != null) onChanged( txtEvt );
+			if(onChanged != null) onChanged( txtEvt, this );
 		}
 	}
 }

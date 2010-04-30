@@ -59,6 +59,7 @@ package ghost.comps.text
 		{
 			super.input = value;
 			_input.multiline = true;
+			_input.wordWrap = true;
 		}
 
 	}

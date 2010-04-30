@@ -1,7 +1,5 @@
 package demos 
 {
-	
-
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
@@ -20,7 +18,6 @@ package demos
 		
 		public function CompleteDemo()
 		{
-			
 			( stage ) ? init() : addEventListener(Event.ADDED_TO_STAGE, onAddedToStage );
 		}
 

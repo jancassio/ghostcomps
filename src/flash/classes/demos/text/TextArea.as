@@ -1,5 +1,6 @@
 package demos.text 
 {
+	import flash.text.TextField;
 	import ghostcomps.skins.ATextArea;
 
 	/**
@@ -9,6 +10,11 @@ package demos.text
 	{
 		public function TextArea ()
 		{
+		}
+		
+		public function get label () : TextField
+		{
+			return label_txt;
 		}
 	}
 }
