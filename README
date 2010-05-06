@@ -1,16 +1,8 @@
-Thanks for download Ghost Comps
+Ghost Comps is a simple api to controls display objects UI Based like, buttons, sliders, lists, etc.
+The objective is implement a minimal functional part of ui controls but, keeping a easy way to improve your UI with particular functionalities.
 
-Some thinks should you know
-
-0 - It's document is written by me and my english needs to upgraded.
-1 - This is a simple API to handlers some common user interface components like button, text fields, scroll, etc.
-2 - The most importante feature of Ghost Comps are, it not is display objects, it just controls your display objects.
-3 - Other important feature is a very simple and flexible implementation, just send you display with some instances pre-defined and it is manipulate by ghost.
-
-If you like to visit the project site, report a bug or collaborate:
+Current Project Site:
 http://github.com/jancassio/ghostcomps/
-
-Now is that you know until here about Ghosts =O
 
 Best regards
 Jan Cássio
