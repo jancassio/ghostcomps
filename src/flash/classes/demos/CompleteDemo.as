@@ -4,6 +4,7 @@ package demos
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import demos.TextDemo;
 
 	/**
 	 * Example of ghosts comps usage.
@@ -14,7 +15,7 @@ package demos
 	[SWF(frameRate="31", backgroundColor="0x000000")]
 	public class CompleteDemo extends Sprite 
 	{
-		private var textDemo : TextDemo;
+		protected var textDemo : TextDemo;
 		
 		public function CompleteDemo()
 		{
@@ -22,14 +23,14 @@ package demos
 		}
 
 		
-		private function onAddedToStage (event : Event) : void 
+		protected function onAddedToStage (event : Event) : void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			init( );
 		}
 
 		
-		private function init () : void 
+		protected function init () : void 
 		{
 			setupStage();
 			
@@ -39,13 +40,13 @@ package demos
 		}
 
 		
-		private function onEnterFrame (event : Event) : void 
+		protected function onEnterFrame (event : Event) : void 
 		{
 			textDemo.render();
 		}
 
 		
-		private function setupStage () : void
+		protected function setupStage () : void
 		{
 			stage.align						= StageAlign.TOP_LEFT;
 			stage.scaleMode					= StageScaleMode.NO_SCALE;
